@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0b0a10;
+  --color-ink-soft: #16141f;
+  --color-mist: #f6f2ff;
+  --color-mist-deep: #ebe4f8;
+  --color-violet: #b5a1ff;
+  --color-violet-deep: #7c5cff;
+  --color-violet-ink: #4c2fb8;
+  --color-stone: #9b96a8;
+  --color-line: rgba(181, 161, 255, 0.22);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    font-family: var(--font-sans);
+    background: var(--color-mist);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html.dark body {
+    background: var(--color-ink);
+    color: #f4f1fb;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-violet-deep);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-violet) 45%, transparent);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .atmosphere {
+    background:
+      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(124, 92, 255, 0.18), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 90% 20%, rgba(181, 161, 255, 0.12), transparent 50%),
+      radial-gradient(ellipse 50% 35% at 50% 100%, rgba(76, 47, 184, 0.1), transparent 55%);
+  }
+
+  .dark .atmosphere {
+    background:
+      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(124, 92, 255, 0.22), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 95% 15%, rgba(181, 161, 255, 0.14), transparent 50%),
+      radial-gradient(ellipse 50% 40% at 40% 100%, rgba(76, 47, 184, 0.2), transparent 55%),
+      #0b0a10;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(11, 10, 16, 0.82) 0%, rgba(11, 10, 16, 0.55) 45%, rgba(11, 10, 16, 0.25) 100%),
+      linear-gradient(180deg, rgba(11, 10, 16, 0.35) 0%, transparent 35%, rgba(11, 10, 16, 0.75) 100%);
+  }
+
+  .light-surface {
+    background: linear-gradient(160deg, #f8f5ff 0%, #ffffff 45%, #efe8fb 100%);
+  }
+
+  .dark .light-surface {
+    background: transparent;
+  }
+}
