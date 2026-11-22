@@ -8,18 +8,22 @@
 
   --color-ink: #0b0a10;
   --color-ink-soft: #16141f;
-  --color-mist: #f6f2ff;
-  --color-mist-deep: #ebe4f8;
+  /* Warm cream / ivory light surfaces (not stark white) */
+  --color-mist: #f3eee4;
+  --color-mist-deep: #e8e0d2;
+  --color-cream: #faf6ee;
+  --color-cream-soft: #f0e9dc;
   --color-violet: #b5a1ff;
   --color-violet-deep: #7c5cff;
   --color-violet-ink: #4c2fb8;
-  --color-stone: #9b96a8;
+  --color-stone: #8a8478;
   --color-line: rgba(181, 161, 255, 0.22);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -65,32 +69,120 @@
     font-family: var(--font-display);
   }
 
-  .atmosphere {
+  /* Base wash behind stripe layers — light: warm cream; dark: deep ink */
+  .stripe-base {
     background:
-      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(124, 92, 255, 0.18), transparent 55%),
-      radial-gradient(ellipse 60% 40% at 90% 20%, rgba(181, 161, 255, 0.12), transparent 50%),
-      radial-gradient(ellipse 50% 35% at 50% 100%, rgba(76, 47, 184, 0.1), transparent 55%);
+      radial-gradient(ellipse 90% 55% at 8% -5%, rgba(124, 92, 255, 0.14), transparent 58%),
+      radial-gradient(ellipse 70% 45% at 92% 18%, rgba(181, 161, 255, 0.1), transparent 52%),
+      linear-gradient(165deg, #faf6ee 0%, #f0e9dc 42%, #e4d9c8 100%);
   }
 
-  .dark .atmosphere {
+  .dark .stripe-base {
     background:
-      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(124, 92, 255, 0.22), transparent 55%),
-      radial-gradient(ellipse 60% 40% at 95% 15%, rgba(181, 161, 255, 0.14), transparent 50%),
-      radial-gradient(ellipse 50% 40% at 40% 100%, rgba(76, 47, 184, 0.2), transparent 55%),
+      radial-gradient(ellipse 90% 55% at 8% -5%, rgba(124, 92, 255, 0.28), transparent 58%),
+      radial-gradient(ellipse 70% 45% at 95% 12%, rgba(181, 161, 255, 0.16), transparent 52%),
+      radial-gradient(ellipse 55% 40% at 40% 100%, rgba(76, 47, 184, 0.22), transparent 55%),
       #0b0a10;
+  }
+
+  .stripe-band {
+    background-repeat: repeat;
+    will-change: transform;
+  }
+
+  /* Light theme: cream / ivory stripes with soft purple and charcoal accents */
+  .stripe-band-a {
+    background-image: repeating-linear-gradient(
+      -14deg,
+      rgba(250, 246, 238, 0.7) 0px,
+      rgba(250, 246, 238, 0.7) 48px,
+      rgba(181, 161, 255, 0.14) 48px,
+      rgba(181, 161, 255, 0.14) 96px,
+      rgba(76, 47, 184, 0.07) 96px,
+      rgba(76, 47, 184, 0.07) 144px,
+      rgba(232, 224, 210, 0.75) 144px,
+      rgba(232, 224, 210, 0.75) 192px
+    );
+  }
+
+  .stripe-band-b {
+    background-image: repeating-linear-gradient(
+      18deg,
+      transparent 0px,
+      transparent 36px,
+      rgba(124, 92, 255, 0.08) 36px,
+      rgba(124, 92, 255, 0.08) 72px,
+      rgba(40, 32, 24, 0.04) 72px,
+      rgba(40, 32, 24, 0.04) 108px
+    );
+  }
+
+  .stripe-band-c {
+    background-image: repeating-linear-gradient(
+      -32deg,
+      transparent 0px,
+      transparent 64px,
+      rgba(76, 47, 184, 0.06) 64px,
+      rgba(76, 47, 184, 0.06) 80px,
+      transparent 80px,
+      transparent 144px
+    );
+  }
+
+  /* Dark theme: black / deep purple / violet stripe stack */
+  .dark .stripe-band-a {
+    background-image: repeating-linear-gradient(
+      -14deg,
+      rgba(11, 10, 16, 0.85) 0px,
+      rgba(11, 10, 16, 0.85) 52px,
+      rgba(22, 20, 31, 0.9) 52px,
+      rgba(22, 20, 31, 0.9) 104px,
+      rgba(76, 47, 184, 0.28) 104px,
+      rgba(76, 47, 184, 0.28) 156px,
+      rgba(124, 92, 255, 0.14) 156px,
+      rgba(124, 92, 255, 0.14) 208px
+    );
+  }
+
+  .dark .stripe-band-b {
+    background-image: repeating-linear-gradient(
+      18deg,
+      transparent 0px,
+      transparent 40px,
+      rgba(181, 161, 255, 0.08) 40px,
+      rgba(181, 161, 255, 0.08) 80px,
+      rgba(11, 10, 16, 0.55) 80px,
+      rgba(11, 10, 16, 0.55) 120px
+    );
+  }
+
+  .dark .stripe-band-c {
+    background-image: repeating-linear-gradient(
+      -32deg,
+      transparent 0px,
+      transparent 72px,
+      rgba(76, 47, 184, 0.2) 72px,
+      rgba(76, 47, 184, 0.2) 92px,
+      transparent 92px,
+      transparent 160px
+    );
+  }
+
+  .stripe-veil {
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 0%, transparent 30%, rgba(243, 238, 228, 0.4) 100%),
+      linear-gradient(180deg, transparent 0%, rgba(232, 224, 210, 0.3) 100%);
+  }
+
+  .dark .stripe-veil {
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 0%, transparent 20%, rgba(11, 10, 16, 0.55) 100%),
+      linear-gradient(180deg, transparent 0%, rgba(11, 10, 16, 0.4) 100%);
   }
 
   .hero-overlay {
     background:
       linear-gradient(90deg, rgba(11, 10, 16, 0.82) 0%, rgba(11, 10, 16, 0.55) 45%, rgba(11, 10, 16, 0.25) 100%),
       linear-gradient(180deg, rgba(11, 10, 16, 0.35) 0%, transparent 35%, rgba(11, 10, 16, 0.75) 100%);
-  }
-
-  .light-surface {
-    background: linear-gradient(160deg, #f8f5ff 0%, #ffffff 45%, #efe8fb 100%);
-  }
-
-  .dark .light-surface {
-    background: transparent;
   }
 }

@@ -1,9 +1,11 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ChevronUp } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { scrollToId } from '../lib/smoothScroll'
 
 export function BackToTop() {
   const [visible, setVisible] = useState(false)
+  const reduce = useReducedMotion()
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 480)
@@ -17,17 +19,24 @@ export function BackToTop() {
       {visible && (
         <motion.button
           type="button"
-          initial={{ opacity: 0, scale: 0.8, y: 12 }}
+          initial={reduce ? false : { opacity: 0, scale: 0.8, y: 12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 12 }}
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.94 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-5 z-40 flex h-11 w-11 items-center justify-center border border-violet/50 bg-ink/90 text-violet shadow-[0_0_24px_rgba(181,161,255,0.35)] backdrop-blur-sm dark:bg-ink"
-          style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)' }}
+          exit={reduce ? undefined : { opacity: 0, scale: 0.8, y: 12 }}
+          whileHover={reduce ? undefined : { scale: 1.06 }}
+          whileTap={reduce ? undefined : { scale: 0.94 }}
+          onClick={() => scrollToId('top')}
+          className="fixed bottom-6 right-5 z-40 flex h-12 w-12 items-center justify-center border border-violet/50 bg-ink/90 text-violet shadow-[0_0_24px_rgba(181,161,255,0.35)] backdrop-blur-sm dark:bg-ink"
           aria-label="Back to top"
         >
-          <ChevronUp size={18} strokeWidth={2.25} />
+          <span
+            className="pointer-events-none absolute inset-1 border border-violet/40"
+            style={{
+              clipPath:
+                'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
+            }}
+            aria-hidden="true"
+          />
+          <ChevronUp size={18} strokeWidth={2.25} className="relative" />
         </motion.button>
       )}
     </AnimatePresence>
