@@ -23,7 +23,7 @@ export function Pricing() {
             <Reveal key={group.title} delay={0.05 * i}>
               <motion.article
                 whileHover={{ y: -4 }}
-                className="h-full border border-violet/20 bg-white p-6 shadow-[0_12px_40px_-28px_rgba(76,47,184,0.45)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none"
+                className="h-full border border-violet/20 bg-cream p-6 shadow-[0_12px_40px_-28px_rgba(76,47,184,0.35)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none"
               >
                 <h3 className="font-display text-2xl text-violet-ink dark:text-violet">{group.title}</h3>
                 <ul className="mt-5 space-y-3">

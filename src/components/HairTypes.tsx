@@ -35,7 +35,7 @@ export function HairTypes() {
               <Reveal key={item.title} delay={0.05 * i}>
                 <motion.article
                   whileHover={{ y: -3 }}
-                  className="flex h-full flex-col border border-violet/15 bg-white/70 p-5 dark:border-white/10 dark:bg-white/[0.03]"
+                  className="flex h-full flex-col border border-violet/15 bg-cream/80 p-5 dark:border-white/10 dark:bg-white/[0.03]"
                 >
                   <h3 className="font-display text-xl text-ink dark:text-white">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-stone dark:text-white/60">{item.desc}</p>

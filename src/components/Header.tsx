@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, Moon, Sun, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
+import { handleAnchorClick } from '../lib/smoothScroll'
 
 const links = [
   { id: 'services', key: 'services' as const },
@@ -37,6 +38,10 @@ export function Header() {
     }
   }, [open])
 
+  const closeThenScroll = (event: MouseEvent<HTMLAnchorElement>) => {
+    handleAnchorClick(event, { onAfterClick: () => setOpen(false) })
+  }
+
   const onDarkBand = theme === 'dark' || overHero
   const barClass = open
     ? 'border-b border-violet/20 bg-ink/95 backdrop-blur-md'
@@ -62,7 +67,7 @@ export function Header() {
         <a
           href="#top"
           className={`font-display text-2xl tracking-[0.18em] sm:text-[1.65rem] ${logoClass}`}
-          onClick={() => setOpen(false)}
+          onClick={closeThenScroll}
         >
           VALZ
         </a>
@@ -72,6 +77,7 @@ export function Header() {
             <a
               key={link.id}
               href={`#${link.id}`}
+              onClick={handleAnchorClick}
               className={`text-[0.8rem] font-medium tracking-wide transition ${linkClass}`}
             >
               {t.nav[link.key]}
@@ -100,7 +106,8 @@ export function Header() {
 
           <a
             href="#visit"
-            className="hidden rounded-md bg-violet px-3.5 py-2 text-sm font-medium text-ink transition hover:bg-white sm:inline-flex dark:hover:bg-white"
+            onClick={handleAnchorClick}
+            className="hidden rounded-md bg-violet px-3.5 py-2 text-sm font-medium text-ink transition hover:bg-cream sm:inline-flex dark:hover:bg-white"
           >
             {t.nav.book}
           </a>
@@ -134,7 +141,7 @@ export function Header() {
                   key={link.id}
                   href={`#${link.id}`}
                   className="rounded-md px-3 py-3 text-base text-white/90 hover:bg-white/5"
-                  onClick={() => setOpen(false)}
+                  onClick={closeThenScroll}
                 >
                   {t.nav[link.key]}
                 </a>
@@ -142,7 +149,7 @@ export function Header() {
               <a
                 href="#visit"
                 className="mt-2 rounded-md bg-violet px-3 py-3 text-center font-medium text-ink"
-                onClick={() => setOpen(false)}
+                onClick={closeThenScroll}
               >
                 {t.nav.book}
               </a>

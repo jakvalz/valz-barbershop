@@ -34,7 +34,7 @@ export function Visit() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="flex h-full flex-col justify-between border border-violet/20 bg-white/80 p-6 sm:p-8 dark:border-white/10 dark:bg-white/[0.04]">
+            <div className="flex h-full flex-col justify-between border border-violet/20 bg-cream/90 p-6 sm:p-8 dark:border-white/10 dark:bg-white/[0.04]">
               <dl className="space-y-6">
                 <div className="flex gap-3">
                   <MapPin className="mt-0.5 shrink-0 text-violet-ink dark:text-violet" size={18} />
