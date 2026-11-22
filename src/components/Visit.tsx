@@ -1,8 +1,9 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+import { asset } from '../lib/asset'
 import { Reveal } from './Reveal'
 
-const VISIT_IMG = '/images/shop-interior.jpg'
+const VISIT_IMG = asset('images/shop-interior.jpg')
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=1847+Mercer+Street+Brooklyn+NY+11201'
 

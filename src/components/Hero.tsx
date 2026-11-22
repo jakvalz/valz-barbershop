@@ -1,8 +1,9 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { asset } from '../lib/asset'
 
-const HERO_IMG = '/images/hero-tools.jpg'
+const HERO_IMG = asset('images/hero-tools.jpg')
 
 export function Hero() {
   const { t } = useLanguage()
