@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
+import { asset } from '../lib/asset'
 import { Reveal } from './Reveal'
 
-const FADE_IMG = '/images/luis-quintero-ia5aE4JL8_A-unsplash.jpg'
+const FADE_IMG = asset('images/luis-quintero-ia5aE4JL8_A-unsplash.jpg')
 
 export function Fades() {
   const { t } = useLanguage()

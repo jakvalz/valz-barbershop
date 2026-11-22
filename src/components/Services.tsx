@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
+import { asset } from '../lib/asset'
 import { Reveal } from './Reveal'
 
-const SERVICE_IMG = '/images/jose-pinto-yG0Z9OwXWks-unsplash.jpg'
+const SERVICE_IMG = asset('images/jose-pinto-yG0Z9OwXWks-unsplash.jpg')
 
 export function Services() {
   const { t } = useLanguage()

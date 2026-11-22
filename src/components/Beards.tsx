@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
+import { asset } from '../lib/asset'
 import { Reveal } from './Reveal'
 
-const BEARD_IMG = '/images/beard-finish.jpg'
+const BEARD_IMG = asset('images/beard-finish.jpg')
 
 export function Beards() {
   const { t } = useLanguage()

@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
+import { asset } from '../lib/asset'
 import { Reveal } from './Reveal'
 
-const HAIR_IMG = '/images/ibrahim-guetar-4brY7Bwss1I-unsplash.jpg'
+const HAIR_IMG = asset('images/ibrahim-guetar-4brY7Bwss1I-unsplash.jpg')
 
 export function HairTypes() {
   const { t } = useLanguage()
