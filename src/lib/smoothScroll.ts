@@ -1,14 +1,22 @@
 import type { MouseEvent } from 'react'
 
+const HEADER_OFFSET_PX = 72
+
 /** Smooth-scroll to an in-page section id. Respects prefers-reduced-motion. */
 export function scrollToId(id: string) {
   const el = document.getElementById(id)
   if (!el) return
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  el.scrollIntoView({
+  // Page top should land at 0; other sections clear the fixed header.
+  const top =
+    id === 'top'
+      ? 0
+      : Math.max(0, el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET_PX)
+
+  window.scrollTo({
+    top,
     behavior: reduce ? 'auto' : 'smooth',
-    block: 'start',
   })
 }
 
@@ -25,9 +33,13 @@ export function handleAnchorClick(
 
   event.preventDefault()
   opts?.onAfterClick?.()
-  scrollToId(id)
 
-  if (history.replaceState) {
-    history.replaceState(null, '', href)
-  }
+  // Let mobile menu close / body overflow unlock before scrolling
+  requestAnimationFrame(() => {
+    scrollToId(id)
+    if (history.replaceState) {
+      const next = `${window.location.pathname}${window.location.search}#${id}`
+      history.replaceState(null, '', next)
+    }
+  })
 }
