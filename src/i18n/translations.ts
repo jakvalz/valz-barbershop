@@ -171,6 +171,62 @@ export const translations = {
       maps: 'Open in Maps',
       request: 'Request a chair',
     },
+    socials: {
+      eyebrow: 'Connect',
+      title: 'Find VALZ online.',
+      sub: 'Cuts, fades, and shop updates — follow along or map your way to the chair.',
+      facebook: 'VALZ on Facebook',
+      instagram: 'VALZ on Instagram',
+      tiktok: 'VALZ on TikTok',
+      maps: 'VALZ on Google Maps',
+    },
+    testimonials: {
+      eyebrow: 'Chair Talk',
+      title: 'What the regulars say.',
+      sub: 'Mock reviews for the VALZ floor — real chairs, real standards.',
+      prev: 'Previous reviews',
+      next: 'Next reviews',
+      hint: 'Scroll horizontally to browse reviews.',
+      items: [
+        {
+          name: 'Marcus R.',
+          meta: 'Mid fade · Chandler',
+          quote:
+            'Cleanest mid fade I’ve had in the East Valley. Lines stayed sharp for two weeks straight.',
+        },
+        {
+          name: 'Diego S.',
+          meta: 'Cut + beard · Regular',
+          quote:
+            'VALZ treats the cut and beard as one piece. Walked out looking intentional, not pieced together.',
+        },
+        {
+          name: 'Andre T.',
+          meta: 'Skin fade',
+          quote:
+            'Patient with my cowlicks, precise on the blend. This is my shop now.',
+        },
+        {
+          name: 'Jordan K.',
+          meta: 'Signature cut',
+          quote:
+            'Quiet chair, sharp consultation, no rushed clipper work. Premium without the attitude.',
+        },
+        {
+          name: 'Luis M.',
+          meta: 'Beard sculpt',
+          quote:
+            'Finally a barber who maps the jawline instead of guessing. Beard looks denser and cleaner.',
+        },
+      ],
+    },
+    leaveReview: {
+      eyebrow: 'Your Turn',
+      title: 'Been in the chair?',
+      sub: 'Book your next cut — or leave a review so the next gent knows what to expect.',
+      book: 'Book now',
+      review: 'Leave a review',
+    },
     footer: {
       rights: '© VALZ Barbershop. Men\'s cuts only.',
     },
@@ -344,6 +400,62 @@ export const translations = {
       email: 'book@valzbarber.com',
       maps: 'Abrir en Maps',
       request: 'Pedir una silla',
+    },
+    socials: {
+      eyebrow: 'Conecta',
+      title: 'Encuentra VALZ en línea.',
+      sub: 'Cortes, fades y novedades del shop — síguenos o traza la ruta a la silla.',
+      facebook: 'VALZ en Facebook',
+      instagram: 'VALZ en Instagram',
+      tiktok: 'VALZ en TikTok',
+      maps: 'VALZ en Google Maps',
+    },
+    testimonials: {
+      eyebrow: 'Desde la silla',
+      title: 'Lo que dicen los regulares.',
+      sub: 'Reseñas de ejemplo del piso VALZ — sillas reales, estándares reales.',
+      prev: 'Reseñas anteriores',
+      next: 'Siguientes reseñas',
+      hint: 'Desplázate horizontalmente para ver reseñas.',
+      items: [
+        {
+          name: 'Marcus R.',
+          meta: 'Fade medio · Chandler',
+          quote:
+            'El fade medio más limpio que he tenido en East Valley. Las líneas aguantaron dos semanas.',
+        },
+        {
+          name: 'Diego S.',
+          meta: 'Corte + barba · Regular',
+          quote:
+            'VALZ trata el corte y la barba como una sola pieza. Salí con un look intencional, no armado a pedazos.',
+        },
+        {
+          name: 'Andre T.',
+          meta: 'Skin fade',
+          quote:
+            'Paciente con mis remolinos, preciso en el degradado. Esta es mi barbería ahora.',
+        },
+        {
+          name: 'Jordan K.',
+          meta: 'Corte Signature',
+          quote:
+            'Silla tranquila, consulta clara, sin prisa en la máquina. Premium sin actitud.',
+        },
+        {
+          name: 'Luis M.',
+          meta: 'Escultura de barba',
+          quote:
+            'Por fin un barbero que mapea la mandíbula en vez de adivinar. La barba se ve más densa y limpia.',
+        },
+      ],
+    },
+    leaveReview: {
+      eyebrow: 'Tu turno',
+      title: '¿Ya te sentaste en la silla?',
+      sub: 'Reserva tu próximo corte — o deja una reseña para que el siguiente sepa qué esperar.',
+      book: 'Reservar ahora',
+      review: 'Dejar una reseña',
     },
     footer: {
       rights: '© VALZ Barbershop. Solo cortes para hombres.',

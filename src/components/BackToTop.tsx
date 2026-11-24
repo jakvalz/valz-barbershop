@@ -25,7 +25,7 @@ export function BackToTop() {
           whileHover={reduce ? undefined : { scale: 1.06 }}
           whileTap={reduce ? undefined : { scale: 0.94 }}
           onClick={() => scrollToId('top')}
-          className="fixed bottom-6 right-5 z-40 flex h-12 w-12 items-center justify-center border border-violet/50 bg-ink/90 text-violet shadow-[0_0_24px_rgba(181,161,255,0.35)] backdrop-blur-sm dark:bg-ink"
+          className="back-to-top fixed bottom-6 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-[0.5px] border border-violet/50 bg-ink/90 text-violet backdrop-blur-sm dark:bg-ink"
           aria-label="Back to top"
         >
           <span

@@ -1,6 +1,7 @@
 /**
- * Full-page continuous gradient wash (cream / purple / ink).
- * Absolute within the document flow so it spans to the footer — no parallax.
+ * Full-page continuous gradient wash.
+ * Light: warm oklch diagonal. Dark: navy→purple diagonal.
+ * Absolute in document flow — scrolls with the page (no parallax).
  */
 export function PageGradient() {
   return (
