@@ -5,7 +5,7 @@ import { Reveal } from './Reveal'
 
 const VISIT_IMG = asset('images/shop-interior.jpg')
 const MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=1847+Mercer+Street+Brooklyn+NY+11201'
+  'https://www.google.com/maps/search/?api=1&query=1847+Mercer+Street+Chandler+AZ+85248'
 
 export function Visit() {
   const { t } = useLanguage()

@@ -9,7 +9,6 @@ export function Footer() {
         <p className="font-display text-lg tracking-[0.16em] text-ink dark:text-white">VALZ</p>
         <div className="text-sm text-stone dark:text-white/50">
           <p>{t.footer.rights}</p>
-          <p className="mt-1">{t.footer.note}</p>
         </div>
       </div>
     </footer>
