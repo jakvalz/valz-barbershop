@@ -1,9 +1,11 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, Moon, Sun, X } from 'lucide-react'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState, type MouseEvent } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
 import { handleAnchorClick } from '../lib/smoothScroll'
+import { BrandLogo } from './BrandLogo'
+import { MenuToggleIcon } from './MenuToggleIcon'
 
 const links = [
   { id: 'services', key: 'services' as const },
@@ -17,6 +19,7 @@ const links = [
 export function Header() {
   const { t, locale, toggleLocale } = useLanguage()
   const { theme, toggleTheme } = useTheme()
+  const reduce = useReducedMotion()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [overHero, setOverHero] = useState(true)
@@ -51,7 +54,8 @@ export function Header() {
         : 'border-b border-violet/15 bg-mist/85 backdrop-blur-md'
       : 'bg-transparent'
 
-  const logoClass = onDarkBand || open ? 'text-white' : 'text-ink'
+  const logoValz = onDarkBand || open ? 'text-white' : 'text-ink'
+  const logoShop = onDarkBand || open ? 'text-violet' : 'text-violet-ink'
   const linkClass =
     onDarkBand || open
       ? 'text-white/80 hover:text-white'
@@ -66,18 +70,11 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.25rem] sm:px-6 lg:px-8">
         <a
           href="#top"
-          className={`flex flex-col leading-none ${logoClass}`}
+          className="inline-flex"
           onClick={closeThenScroll}
           aria-label="VALZ Barbershop"
         >
-          <span className="font-display text-2xl tracking-[0.18em] sm:text-[1.65rem]">VALZ</span>
-          <span
-            className={`mt-[0.2em] text-[0.55rem] font-semibold tracking-[0.38em] sm:text-[0.6rem] ${
-              onDarkBand || open ? 'text-violet' : 'text-violet-ink'
-            }`}
-          >
-            BARBERSHOP
-          </span>
+          <BrandLogo size="nav" valzClassName={logoValz} barbershopClassName={logoShop} />
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
@@ -128,7 +125,7 @@ export function Header() {
             aria-label={open ? 'Close menu' : 'Open menu'}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            <MenuToggleIcon open={open} reduce={reduce} />
           </button>
         </div>
       </div>
