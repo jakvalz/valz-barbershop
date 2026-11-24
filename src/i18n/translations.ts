@@ -13,7 +13,7 @@ export const translations = {
     },
     hero: {
       tagline: 'Precision cuts for the modern gentleman.',
-      sub: "Men's-only barbering — fades, shaves, and beard craft in Brooklyn.",
+      sub: "Men's-only barbering — fades, shaves, and beard craft in Chandler.",
       ctaServices: 'View services',
       ctaPricing: 'See pricing',
     },
@@ -51,7 +51,7 @@ export const translations = {
     fades: {
       eyebrow: 'Fade Studio',
       title: 'Heights, blends, and edge work.',
-      sub: 'The fade is architecture. We map the blend to your skull shape and hair density.',
+      sub: 'The fade is architecture. We map the blend to your head shape and hair density.',
       items: [
         { title: 'Low Fade', desc: 'Tight near the ear, soft rise into the crown.' },
         { title: 'Mid Fade', desc: 'Balanced contrast — versatile for work and weekends.' },
@@ -158,12 +158,12 @@ export const translations = {
     },
     visit: {
       eyebrow: 'Find Us',
-      title: 'Brooklyn chair, purple door.',
+      title: 'Chandler chair, purple door.',
       sub: 'Walk in when the light is on — or book ahead for Friday evenings.',
       addressLabel: 'Address',
-      address: '1847 Mercer Street, Suite 2\nBrooklyn, NY 11201',
+      address: '1847 Mercer Street, Suite 2\nChandler, AZ 85248',
       hoursLabel: 'Hours',
-      hours: 'Tue–Fri 10am–8pm\nSat 9am–6pm\nSun–Mon Closed',
+      hours: 'Mon–Fri 10am–8pm\nSat 9am–5pm\nSun Closed',
       phoneLabel: 'Phone',
       phone: '(718) 555-0192',
       emailLabel: 'Email',
@@ -173,7 +173,6 @@ export const translations = {
     },
     footer: {
       rights: '© VALZ Barbershop. Men\'s cuts only.',
-      note: 'Mock Brooklyn location for demo purposes.',
     },
   },
   es: {
@@ -188,7 +187,7 @@ export const translations = {
     },
     hero: {
       tagline: 'Cortes precisos para el caballero moderno.',
-      sub: 'Barbería solo para hombres — fades, afeitados y barbas en Brooklyn.',
+      sub: 'Barbería solo para hombres — fades, afeitados y barbas en Chandler.',
       ctaServices: 'Ver servicios',
       ctaPricing: 'Ver precios',
     },
@@ -226,7 +225,7 @@ export const translations = {
     fades: {
       eyebrow: 'Estudio de Fades',
       title: 'Alturas, mezclas y bordes.',
-      sub: 'El fade es arquitectura. Mapeamos el degradado a tu cráneo y densidad.',
+      sub: 'El fade es arquitectura. Mapeamos el degradado a la forma de tu cabeza y densidad.',
       items: [
         { title: 'Fade Bajo', desc: 'Ajustado cerca de la oreja, subida suave a la corona.' },
         { title: 'Fade Medio', desc: 'Contraste equilibrado — versátil para trabajo y fines de semana.' },
@@ -333,12 +332,12 @@ export const translations = {
     },
     visit: {
       eyebrow: 'Encuéntranos',
-      title: 'Silla en Brooklyn, puerta púrpura.',
+      title: 'Silla en Chandler, puerta púrpura.',
       sub: 'Entra cuando la luz esté encendida — o reserva con anticipación los viernes por la noche.',
       addressLabel: 'Dirección',
-      address: '1847 Mercer Street, Suite 2\nBrooklyn, NY 11201',
+      address: '1847 Mercer Street, Suite 2\nChandler, AZ 85248',
       hoursLabel: 'Horario',
-      hours: 'Mar–Vie 10am–8pm\nSáb 9am–6pm\nDom–Lun Cerrado',
+      hours: 'Lun–Vie 10am–8pm\nSáb 9am–5pm\nDom Cerrado',
       phoneLabel: 'Teléfono',
       phone: '(718) 555-0192',
       emailLabel: 'Correo',
@@ -348,7 +347,6 @@ export const translations = {
     },
     footer: {
       rights: '© VALZ Barbershop. Solo cortes para hombres.',
-      note: 'Ubicación ficticia en Brooklyn para la demo.',
     },
   },
 } as const

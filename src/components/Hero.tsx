@@ -1,5 +1,4 @@
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useLanguage } from '../context/LanguageContext'
 import { asset } from '../lib/asset'
 import { handleAnchorClick } from '../lib/smoothScroll'
@@ -8,69 +7,45 @@ const HERO_IMG = asset('images/hero-tools.jpg')
 
 export function Hero() {
   const { t } = useLanguage()
-  const ref = useRef<HTMLElement>(null)
   const reduce = useReducedMotion()
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
-
-  const imgY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 180])
-  const imgScale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1.08, 1])
-  const overlayY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 70])
-  const contentY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 90])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0.2])
-  const accentY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -60])
 
   return (
     <section
       id="top"
-      ref={ref}
       className="relative flex min-h-[100svh] items-end overflow-hidden bg-ink pb-16 pt-28 sm:items-center sm:pb-24 sm:pt-24"
     >
-      <motion.div
-        style={{ y: imgY, scale: imgScale }}
-        className="absolute inset-0 will-change-transform"
-      >
+      <div className="absolute inset-0">
         <img
           src={HERO_IMG}
           alt="Professional barber clippers, shears, and grooming tools on a dark surface"
           className="h-full w-full object-cover object-center"
           fetchPriority="high"
         />
-      </motion.div>
+      </div>
 
-      <motion.div
-        style={{ y: overlayY }}
-        className="hero-overlay absolute inset-0 will-change-transform"
-      />
+      <div className="hero-overlay absolute inset-0" />
 
-      <motion.div
-        style={{ y: accentY }}
+      <div
         className="pointer-events-none absolute -right-16 top-24 h-64 w-64 rounded-full bg-violet/15 blur-3xl sm:h-80 sm:w-80"
         aria-hidden="true"
       />
-      <motion.div
-        style={{ y: overlayY }}
+      <div
         className="pointer-events-none absolute -left-20 bottom-10 h-48 w-48 rounded-full bg-violet-deep/20 blur-3xl"
         aria-hidden="true"
       />
 
-      <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8"
-      >
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={reduce ? false : { opacity: 0, y: 36 }}
+          initial={reduce ? false : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-xl"
         >
-          <h1 className="font-display text-white">
+          <h1 className="font-display leading-none text-white">
             <span className="block text-6xl font-medium tracking-[0.12em] sm:text-7xl md:text-8xl">
               VALZ
             </span>
-            <span className="mt-2 block text-lg font-semibold tracking-[0.42em] text-violet sm:mt-3 sm:text-xl md:text-2xl">
+            <span className="mt-[0.18em] block text-base font-semibold tracking-[0.42em] text-violet sm:text-lg md:text-xl">
               BARBERSHOP
             </span>
           </h1>
@@ -97,7 +72,7 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }

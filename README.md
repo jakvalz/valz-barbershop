@@ -1,6 +1,6 @@
 # VALZ — Men's Barbershop
 
-Premium men's-only barbershop landing page for VALZ (Brooklyn).
+Premium men's-only barbershop landing page for VALZ (Chandler, AZ).
 
 ## Stack
 

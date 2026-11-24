@@ -66,10 +66,18 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:h-[4.25rem] sm:px-6 lg:px-8">
         <a
           href="#top"
-          className={`font-display text-2xl tracking-[0.18em] sm:text-[1.65rem] ${logoClass}`}
+          className={`flex flex-col leading-none ${logoClass}`}
           onClick={closeThenScroll}
+          aria-label="VALZ Barbershop"
         >
-          VALZ
+          <span className="font-display text-2xl tracking-[0.18em] sm:text-[1.65rem]">VALZ</span>
+          <span
+            className={`mt-[0.2em] text-[0.55rem] font-semibold tracking-[0.38em] sm:text-[0.6rem] ${
+              onDarkBand || open ? 'text-violet' : 'text-violet-ink'
+            }`}
+          >
+            BARBERSHOP
+          </span>
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
