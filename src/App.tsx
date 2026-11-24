@@ -7,7 +7,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Pricing } from './components/Pricing'
 import { Services } from './components/Services'
-import { StripedAtmosphere } from './components/StripedAtmosphere'
+import { PageGradient } from './components/PageGradient'
 import { Visit } from './components/Visit'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -17,7 +17,7 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <div className="relative min-h-svh">
-          <StripedAtmosphere />
+          <PageGradient />
           <Header />
           <main className="relative z-0">
             <Hero />
