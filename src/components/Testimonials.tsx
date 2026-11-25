@@ -19,10 +19,10 @@ function Stars({ className = '' }: { className?: string }) {
 
 function DiamondRule() {
   return (
-    <div className="flex items-center justify-center gap-3" aria-hidden="true">
-      <span className="h-px w-10 bg-bronze/70 sm:w-14" />
-      <span className="block h-1.5 w-1.5 rotate-45 bg-bronze" />
-      <span className="h-px w-10 bg-bronze/70 sm:w-14" />
+    <div className="mx-auto flex w-full max-w-[14rem] items-center" aria-hidden="true">
+      <span className="h-px flex-1 bg-bronze/75" />
+      <span className="mx-2.5 block h-1.5 w-1.5 shrink-0 rotate-45 bg-bronze" />
+      <span className="h-px flex-1 bg-bronze/75" />
     </div>
   )
 }
