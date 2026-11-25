@@ -63,7 +63,7 @@ export function Socials() {
     <section id="socials" className="relative scroll-mt-24 py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-ink dark:text-violet">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-bronze">
             {t.socials.eyebrow}
           </p>
           <h2 className="mt-3 font-display text-3xl font-medium text-ink dark:text-white sm:text-4xl">
@@ -81,7 +81,7 @@ export function Socials() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={t.socials[key]}
-                  className="group flex h-12 w-12 items-center justify-center border border-violet-ink/25 text-ink transition hover:border-violet-ink hover:bg-violet/15 dark:border-violet/35 dark:text-violet dark:hover:border-violet dark:hover:bg-violet/10"
+                  className="group flex h-12 w-12 items-center justify-center rounded-[10px] border border-bronze/55 text-ink transition hover:border-bronze hover:bg-bronze/15 dark:border-bronze/45 dark:text-bronze dark:hover:border-bronze dark:hover:bg-bronze/15"
                 >
                   <span className="transition group-hover:scale-105">{icon}</span>
                 </a>

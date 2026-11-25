@@ -18,6 +18,9 @@
   --color-violet-ink: #4c2fb8;
   --color-stone: #8a8478;
   --color-line: rgba(181, 161, 255, 0.22);
+  /* Testimonials gold / bronze accent */
+  --color-bronze: #c5a059;
+  --color-bronze-deep: #9a7a3a;
 }
 
 @layer base {
@@ -50,7 +53,7 @@
   }
 
   html.dark body {
-    background: rgb(0, 32, 95);
+    background: var(--color-ink);
     color: #f4f1fb;
   }
 
@@ -69,30 +72,29 @@
     font-family: var(--font-display);
   }
 
-  /*
-   * Light: diagonal linear from the warm oklch conic inspiration
-   * (no center swirl). Full-bleed wash uses the lighter stops so ink
-   * text stays readable; deeper oklch(0.45)/oklch(0.3) live in glow/veil only.
-   * No hue/chroma inventing — same palette, layered by role.
-   */
+  /* Pre-PR#5 full-document gradient — cream / purple / ink family */
   .page-gradient {
-    background-image: linear-gradient(
-      135deg,
-      oklch(0.853 0.013 41.187) 0%,
-      oklch(0.647 0.033 40.796) 100%
-    );
+    background:
+      linear-gradient(
+        165deg,
+        #faf6ee 0%,
+        #f3eee4 28%,
+        #ebe3f4 55%,
+        #e4d9c8 78%,
+        #f0e9dc 100%
+      );
   }
 
-  /*
-   * Dark: base 89.7deg blue→purple, rotated clockwise to a clear diagonal (~135deg).
-   * Palette unchanged for a11y — existing ink/white text tokens remain.
-   */
   .dark .page-gradient {
-    background: linear-gradient(
-      135deg,
-      rgb(0, 32, 95) 2.8%,
-      rgb(132, 53, 142) 97.8%
-    );
+    background:
+      linear-gradient(
+        165deg,
+        #0b0a10 0%,
+        #12101a 22%,
+        #1a1428 48%,
+        #140f22 72%,
+        #0b0a10 100%
+      );
   }
 
   .page-gradient-glow {
@@ -101,55 +103,53 @@
 
   .page-gradient-glow-a {
     background-image:
-      radial-gradient(ellipse 80% 45% at 12% 8%, oklch(0.647 0.033 40.796 / 0.35), transparent 60%),
-      radial-gradient(ellipse 55% 35% at 88% 35%, oklch(0.853 0.013 41.187 / 0.25), transparent 55%);
+      radial-gradient(ellipse 80% 45% at 12% 8%, rgba(124, 92, 255, 0.16), transparent 60%),
+      radial-gradient(ellipse 55% 35% at 88% 35%, rgba(181, 161, 255, 0.12), transparent 55%),
+      radial-gradient(ellipse 70% 40% at 40% 78%, rgba(76, 47, 184, 0.08), transparent 60%);
   }
 
   .dark .page-gradient-glow-a {
     background-image:
-      radial-gradient(ellipse 80% 45% at 12% 8%, rgba(0, 32, 95, 0.45), transparent 60%),
-      radial-gradient(ellipse 55% 35% at 88% 35%, rgba(132, 53, 142, 0.35), transparent 55%);
+      radial-gradient(ellipse 80% 45% at 12% 8%, rgba(124, 92, 255, 0.32), transparent 60%),
+      radial-gradient(ellipse 55% 35% at 88% 35%, rgba(181, 161, 255, 0.18), transparent 55%),
+      radial-gradient(ellipse 70% 40% at 40% 78%, rgba(76, 47, 184, 0.28), transparent 60%);
   }
 
   .page-gradient-glow-b {
     background-image:
-      radial-gradient(ellipse 50% 30% at 70% 92%, oklch(0.45 0.049 39.211 / 0.28), transparent 55%);
+      radial-gradient(ellipse 50% 30% at 70% 92%, rgba(124, 92, 255, 0.1), transparent 55%),
+      radial-gradient(ellipse 40% 25% at 20% 55%, rgba(181, 161, 255, 0.08), transparent 50%);
   }
 
   .dark .page-gradient-glow-b {
     background-image:
-      radial-gradient(ellipse 50% 30% at 70% 92%, rgba(132, 53, 142, 0.3), transparent 55%);
+      radial-gradient(ellipse 50% 30% at 70% 92%, rgba(124, 92, 255, 0.22), transparent 55%),
+      radial-gradient(ellipse 40% 25% at 20% 55%, rgba(76, 47, 184, 0.2), transparent 50%);
   }
 
   .page-gradient-veil {
     background:
-      linear-gradient(180deg, oklch(0.853 0.013 41.187 / 0.2) 0%, transparent 18%, transparent 82%, oklch(0.3 0.036 30.204 / 0.35) 100%);
+      linear-gradient(180deg, rgba(250, 246, 238, 0.15) 0%, transparent 18%, transparent 82%, rgba(228, 217, 200, 0.35) 100%);
   }
 
   .dark .page-gradient-veil {
     background:
-      linear-gradient(180deg, rgba(0, 32, 95, 0.35) 0%, transparent 20%, transparent 80%, rgba(0, 24, 70, 0.45) 100%);
+      linear-gradient(180deg, rgba(11, 10, 16, 0.35) 0%, transparent 20%, transparent 80%, rgba(11, 10, 16, 0.5) 100%);
   }
 
-  /* Testimonials section surface — warm/purple light, distinct purple dark */
+  /* Testimonials — dark charcoal / light warm cream with bronze accents */
   .testimonials-surface {
     background:
       linear-gradient(
-        120deg,
-        oklch(0.853 0.013 41.187 / 0.55) 0%,
-        color-mix(in oklab, #b5a1ff 18%, #f3eee4) 45%,
-        oklch(0.647 0.033 40.796 / 0.4) 100%
+        165deg,
+        #f7f1e6 0%,
+        #efe6d6 40%,
+        #e8dcc8 100%
       );
   }
 
   .dark .testimonials-surface {
-    background:
-      linear-gradient(
-        120deg,
-        rgba(48, 18, 78, 0.92) 0%,
-        rgba(76, 32, 110, 0.85) 50%,
-        rgba(40, 16, 72, 0.9) 100%
-      );
+    background: #121212;
   }
 
   /* Back-to-top: stronger light-mode shadow (a couple px) */
