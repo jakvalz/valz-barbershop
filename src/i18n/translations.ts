@@ -181,13 +181,19 @@ export const translations = {
       maps: 'VALZ on Google Maps',
     },
     testimonials: {
-      eyebrow: 'Chair Talk',
-      title: 'What the regulars say.',
-      sub: 'Mock reviews for the VALZ floor — real chairs, real standards.',
-      prev: 'Previous reviews',
-      next: 'Next reviews',
-      hint: 'Scroll horizontally to browse reviews.',
+      eyebrow: 'Client Reviews',
+      title: 'In Their Words',
+      rating: 'Five-star rated by clients on Google',
+      prev: 'Previous review',
+      next: 'Next review',
+      hint: 'Review pagination',
       items: [
+        {
+          name: 'Seb',
+          meta: 'Google review',
+          quote:
+            'His attention to detail is unmatched. Walked in for a fade and left feeling like a new man.',
+        },
         {
           name: 'Marcus R.',
           meta: 'Mid fade · Chandler',
@@ -211,12 +217,6 @@ export const translations = {
           meta: 'Signature cut',
           quote:
             'Quiet chair, sharp consultation, no rushed clipper work. Premium without the attitude.',
-        },
-        {
-          name: 'Luis M.',
-          meta: 'Beard sculpt',
-          quote:
-            'Finally a barber who maps the jawline instead of guessing. Beard looks denser and cleaner.',
         },
       ],
     },
@@ -411,13 +411,19 @@ export const translations = {
       maps: 'VALZ en Google Maps',
     },
     testimonials: {
-      eyebrow: 'Desde la silla',
-      title: 'Lo que dicen los regulares.',
-      sub: 'Reseñas de ejemplo del piso VALZ — sillas reales, estándares reales.',
-      prev: 'Reseñas anteriores',
-      next: 'Siguientes reseñas',
-      hint: 'Desplázate horizontalmente para ver reseñas.',
+      eyebrow: 'Reseñas de clientes',
+      title: 'En Sus Palabras',
+      rating: 'Calificación de cinco estrellas por clientes en Google',
+      prev: 'Reseña anterior',
+      next: 'Siguiente reseña',
+      hint: 'Paginación de reseñas',
       items: [
+        {
+          name: 'Seb',
+          meta: 'Reseña de Google',
+          quote:
+            'Su atención al detalle no tiene comparación. Entré por un fade y salí sintiéndome otro.',
+        },
         {
           name: 'Marcus R.',
           meta: 'Fade medio · Chandler',
@@ -441,12 +447,6 @@ export const translations = {
           meta: 'Corte Signature',
           quote:
             'Silla tranquila, consulta clara, sin prisa en la máquina. Premium sin actitud.',
-        },
-        {
-          name: 'Luis M.',
-          meta: 'Escultura de barba',
-          quote:
-            'Por fin un barbero que mapea la mandíbula en vez de adivinar. La barba se ve más densa y limpia.',
         },
       ],
     },

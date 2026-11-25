@@ -81,7 +81,7 @@ export function Socials() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={t.socials[key]}
-                  className="group flex h-12 w-12 items-center justify-center border border-violet-ink/25 text-ink transition hover:border-violet-ink hover:bg-violet/15 dark:border-violet/35 dark:text-violet dark:hover:border-violet dark:hover:bg-violet/10"
+                  className="group flex h-12 w-12 items-center justify-center rounded-[10px] border border-violet-ink/25 text-ink transition hover:border-violet-ink hover:bg-violet/15 dark:border-violet/35 dark:text-violet dark:hover:border-violet dark:hover:bg-violet/10"
                 >
                   <span className="transition group-hover:scale-105">{icon}</span>
                 </a>

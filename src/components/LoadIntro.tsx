@@ -2,62 +2,70 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { BrandLogo } from './BrandLogo'
 
+const EASE = [0.22, 1, 0.36, 1] as const
+/** Total timeline ~1.9s (pop 0.3 → hold → ease-out), then unmount. */
+const TOTAL_MS = 1900
+
 /**
  * Load intro ≤2s total:
  * gradient already visible → logo pops in (~0.3s) → eases out slowly.
+ * Single `show` flag + keyframes (no mid-tween phase retargets).
  * Skipped when prefers-reduced-motion.
  */
 export function LoadIntro() {
   const reduce = useReducedMotion()
-  const [phase, setPhase] = useState<'in' | 'hold' | 'out' | 'done'>(
-    reduce ? 'done' : 'in',
-  )
+  const [show, setShow] = useState(() => !reduce)
 
   useEffect(() => {
-    if (reduce) return
+    if (reduce) {
+      setShow(false)
+      return
+    }
 
     document.body.style.overflow = 'hidden'
-    const hold = window.setTimeout(() => setPhase('hold'), 300)
-    const out = window.setTimeout(() => setPhase('out'), 900)
-    const done = window.setTimeout(() => {
-      setPhase('done')
-      document.body.style.overflow = ''
-    }, 1900)
+    const done = window.setTimeout(() => setShow(false), TOTAL_MS)
 
     return () => {
-      window.clearTimeout(hold)
-      window.clearTimeout(out)
       window.clearTimeout(done)
       document.body.style.overflow = ''
     }
   }, [reduce])
 
   return (
-    <AnimatePresence>
-      {phase !== 'done' && (
+    <AnimatePresence
+      onExitComplete={() => {
+        document.body.style.overflow = ''
+      }}
+    >
+      {show && (
         <motion.div
           key="load-intro"
           className="fixed inset-0 z-[100] flex items-center justify-center"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: phase === 'out' ? 0 : 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           aria-hidden="true"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: [1, 1, 0] }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: TOTAL_MS / 1000, times: [0, 0.47, 1], ease: EASE }}
+          style={{ willChange: 'opacity' }}
         >
+          {/* Full PageGradient stack — avoids wash flash on reveal */}
           <div className="page-gradient absolute inset-0" />
           <div className="page-gradient-glow page-gradient-glow-a absolute inset-0" />
+          <div className="page-gradient-glow page-gradient-glow-b absolute inset-0" />
+          <div className="page-gradient-veil absolute inset-0" />
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.88 }}
-            animate={
-              phase === 'in' || phase === 'hold'
-                ? { opacity: 1, scale: 1 }
-                : { opacity: 0, scale: 1.04 }
-            }
-            transition={
-              phase === 'out'
-                ? { duration: 0.85, ease: [0.22, 1, 0.36, 1] }
-                : { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
-            }
+            initial={false}
+            animate={{
+              opacity: [0, 1, 1, 1],
+              scale: [0.88, 1, 1, 1.03],
+            }}
+            transition={{
+              duration: TOTAL_MS / 1000,
+              times: [0, 0.16, 0.47, 1],
+              ease: EASE,
+            }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <BrandLogo
               size="intro"
